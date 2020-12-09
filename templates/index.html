@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href='{{ url_for('static', filename='style.css') }}'>
+
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Machine Learning based Placement Prediction Web App</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="experience" placeholder="Gender(M/F)" required="required" />
+        <input type="text" name="test_score" placeholder="12th percent" required="required" />
+		<input type="text" name="interview_score" placeholder="12th board (State =S/Central=C)" required="required" />
+		<input type="text" name="experience1" placeholder="high Schl percent" required="required" />
+        <input type="text" name="test_score1" placeholder="high Schl board (State = S/Central=C)" required="required" />
+		<input type="text" name="interview_score1" placeholder="Sub (Arts =A/Comm = CM/Sci =SC)" required="required" />
+		<input type="text" name="experience2" placeholder="Degree percent" required="required" />
+        <input type="text" name="test_score2" placeholder="Degree (Tech = T/Management = M/Others = O)" required="required" />
+		<input type="text" name="interview_score2" placeholder="Work exp (Yes = Y/No = N)" required="required" />
+		<input type="text" name="experience3" placeholder="Etest percent" required="required" />
+        <input type="text" name="test_score3" placeholder="specialisation (Fin = F/HR = H)" required="required" />
+		<input type="text" name="interview_score3" placeholder="mba percent" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
